@@ -30,13 +30,15 @@ document.addEventListener('keydown', e => {
     updateCanvas();
 });
 
+
+
 function updateCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     player.createPlayer();
     obstacle.createObstacle();
     target.createTarget();
-    obstacle.animate();
-    target.animate();
+    obstacle.moveObstacle();
+    target.moveTarget();
 }
 
 setInterval(updateCanvas, 200);

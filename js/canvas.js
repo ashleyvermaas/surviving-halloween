@@ -13,28 +13,41 @@ class Player {
     }
 
     jump() {
-        this.y -= 100;
+        this.y -= 200;
     }
 
     moveUp() {
-        this.y -= 10;
+        if (this.y === 0) {
+            this.y = 0;
+        } else {
+            this.y -= 100;
+        }
     }
 
     moveDown() {
-        this.y += 10;
+        if (this.y === canvas.height - 100) {
+            this.y = canvas.height - 100;
+        } else {
+            this.y += 100;
+        }
     }
 
     moveLeft() {
-        this.x -= 10;
+        if (this.x === 0) {
+            this.x = 0;
+        } else {
+            this.x -= 100;
+        }
     }
 
     moveRight() {
-        this.x += 10;
+        if (this.x === canvas.width - 100) {
+            this.x = canvas.width - 100;
+        } else {
+            this.x += 100;
+        }
     }
-
-
 }
-
 
 class Obstacle {
     constructor() {
@@ -47,11 +60,13 @@ class Obstacle {
         ctx.fillRect(this.x, this.y, 100, 100);
     }
 
-    animate() {
-        requestAnimationFrame(obstacle.animate);
-        this.x -= 100;
+    moveObstacle() {
+        requestAnimationFrame(obstacle.moveObstacle);
+        this.x -= 50;
+        // if (this.x < -200) {
+        //     this.x = 1000;
+        // }
     }
-
 }
 
 class Target {
@@ -65,18 +80,16 @@ class Target {
         ctx.fillRect(this.x, this.y, 100, 100);
     }
 
-    animate() {
-        requestAnimationFrame(target.animate);
+    moveTarget() {
+        requestAnimationFrame(target.moveTarget);
         this.x -= 50;
+        // if (this.x < -200) {
+        //     this.x = 1000;
+        // }
     }
 }
 
-// Show player, obstacle and target on canvas
+// Put classes in variables
 const player = new Player();
 const obstacle = new Obstacle();
 const target = new Target();
-
-player.createPlayer();
-obstacle.createObstacle();
-target.createTarget();
-obstacle.animate();
