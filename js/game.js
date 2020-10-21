@@ -18,13 +18,25 @@ document.addEventListener('keydown', e => {
             player.moveDown();
             console.log('down', player);
             break;
+        case 37:
+            player.moveLeft();
+            console.log('left', player);
+            break;
+        case 39:
+            player.moveRight();
+            console.log('right', player);
+            break;
     }
     updateCanvas();
 });
 
 function updateCanvas() {
-    ctx.clearRect(0, 0, 1000, 500);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     player.createPlayer();
     obstacle.createObstacle();
     target.createTarget();
+    obstacle.animate();
+    target.animate();
 }
+
+setInterval(updateCanvas, 200);

@@ -2,59 +2,72 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 class Player {
-    constructor(/*posX, posY, radius*/) {
-        /*this.x = posX;
-        this.y = posY;
-        this.radius = radius;*/
-
+    constructor() {
         this.x = 0;
         this.y = 400;
     }
 
     createPlayer() {
         ctx.fillStyle = 'black';
-        //ctx.fillRect(0, 400, 100, 100);
         ctx.fillRect(this.x, this.y, 100, 100);
     }
 
-    jump(){
+    jump() {
         this.y -= 100;
-}
+    }
 
-    moveUp(){
+    moveUp() {
         this.y -= 10;
     }
 
-    moveDown(){
+    moveDown() {
         this.y += 10;
     }
+
+    moveLeft() {
+        this.x -= 10;
+    }
+
+    moveRight() {
+        this.x += 10;
+    }
+
 
 }
 
 
 class Obstacle {
-    constructor(posX, posY, radius) {
-        this.x = posX;
-        this.y = posY;
-        this.radius = radius;
+    constructor() {
+        this.x = 900;
+        this.y = 400;
     }
 
     createObstacle() {
         ctx.fillStyle = 'red';
-        ctx.fillRect(300, 400, 100, 100);
+        ctx.fillRect(this.x, this.y, 100, 100);
     }
+
+    animate() {
+        requestAnimationFrame(obstacle.animate);
+        this.x -= 100;
+    }
+
 }
 
 class Target {
-    constructor(posX, posY, radius) {
-        this.x = posX;
-        this.y = posY;
-        this.radius = radius;
+    constructor() {
+        this.x = 900;
+        this.y = 300;
     }
 
     createTarget() {
         ctx.fillStyle = 'green';
-        ctx.fillRect(0, 0, 100, 100);
+        ctx.fillRect(this.x, this.y, 100, 100);
+    }
+
+    animate() {
+        requestAnimationFrame(target.animate);
+        this.x -= 50;
     }
 }
 
@@ -66,4 +79,4 @@ const target = new Target();
 player.createPlayer();
 obstacle.createObstacle();
 target.createTarget();
-
+obstacle.animate();
