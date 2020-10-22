@@ -5,30 +5,37 @@ class Player {
     constructor() {
         this.x = 0;
         this.y = 400;
+        this.width = 100;
+        this.height = 100;
+        this.color = 'black';
     }
 
     createPlayer() {
-        ctx.fillStyle = 'black';
-        ctx.fillRect(this.x, this.y, 100, 100);
+        ctx.fillStyle = this.color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 
     jump() {
-        this.y -= 200;
+        if (this.y === 0) {
+            this.y = 0;
+        } else {
+            this.y -= 200;
+        }
     }
 
     moveUp() {
         if (this.y === 0) {
             this.y = 0;
         } else {
-            this.y -= 100;
+            this.y -= this.height;
         }
     }
 
     moveDown() {
-        if (this.y === canvas.height - 100) {
-            this.y = canvas.height - 100;
+        if (this.y === canvas.height - this.height) {
+            this.y = canvas.height - this.height;
         } else {
-            this.y += 100;
+            this.y += this.height;
         }
     }
 
@@ -36,16 +43,32 @@ class Player {
         if (this.x === 0) {
             this.x = 0;
         } else {
-            this.x -= 100;
+            this.x -= this.width;
         }
     }
 
     moveRight() {
-        if (this.x === canvas.width - 100) {
-            this.x = canvas.width - 100;
+        if (this.x === canvas.width - this.width) {
+            this.x = canvas.width - this.width;
         } else {
-            this.x += 100;
+            this.x += this.width;
         }
+    }
+
+    detectCollision() {
+        if (this.x < obstacle.x + obstacle.width &&
+            this.x + this.width > obstacle.x &&
+            this.y < obstacle.y + obstacle.height &&
+            this.y + this.height > obstacle.y) {
+                this.color = 'purple';
+            }
+
+            if (this.x < target.x + target.width &&
+                this.x + this.width > target.x &&
+                this.y < target.y + target.height &&
+                this.y + this.height > target.y) {
+                    this.color = 'yellow';
+                }
     }
 }
 
@@ -53,18 +76,20 @@ class Obstacle {
     constructor() {
         this.x = 900;
         this.y = 400;
+        this.width = 100;
+        this.height = 100;
     }
 
     createObstacle() {
         ctx.fillStyle = 'red';
-        ctx.fillRect(this.x, this.y, 100, 100);
+        ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 
     moveObstacle() {
         requestAnimationFrame(obstacle.moveObstacle);
         this.x -= 50;
         // if (this.x < -200) {
-        //     this.x = 1000;
+        //      this.x = 1000;
         // }
     }
 }
@@ -73,19 +98,21 @@ class Target {
     constructor() {
         this.x = 900;
         this.y = 300;
+        this.width = 100;
+        this.height = 100;
     }
 
     createTarget() {
         ctx.fillStyle = 'green';
-        ctx.fillRect(this.x, this.y, 100, 100);
+        ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 
     moveTarget() {
         requestAnimationFrame(target.moveTarget);
         this.x -= 50;
-        // if (this.x < -200) {
+        //  if (this.x < -200) {
         //     this.x = 1000;
-        // }
+        //  }
     }
 }
 

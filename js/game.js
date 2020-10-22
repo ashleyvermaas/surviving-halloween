@@ -39,6 +39,7 @@ function updateCanvas() {
     target.createTarget();
     obstacle.moveObstacle();
     target.moveTarget();
+    player.detectCollision();
 }
 
 setInterval(updateCanvas, 200);
