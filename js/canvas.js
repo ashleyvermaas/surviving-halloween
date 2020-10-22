@@ -8,10 +8,8 @@ class Player {
         this.width = 100;
         this.height = 100;
         this.color = 'black';
-        // this.speedX = 0;
-        // this.speedY = 0;
-        // this.gravity = 0.05;
-        // this.gravitySpeed = 0;
+        this.speedX = this.width;
+        this.speedY = this.height;
     }
 
     createPlayer() {
@@ -23,7 +21,7 @@ class Player {
         if (this.y === 0 || this.y - this.height === 0) {
             this.y = 0;
         } else {
-            this.y -= 200;
+            this.y -= this.speedY * 2;
         }
     }
 
@@ -31,7 +29,7 @@ class Player {
         if (this.y === 0) {
             this.y = 0;
         } else {
-            this.y -= this.height;
+            this.y -= this.speedY;
         }
     }
 
@@ -39,7 +37,7 @@ class Player {
         if (this.y === canvas.height - this.height) {
             this.y = canvas.height - this.height;
         } else {
-            this.y += this.height;
+            this.y += this.speedY;
         }
     }
 
@@ -47,7 +45,7 @@ class Player {
         if (this.x === 0) {
             this.x = 0;
         } else {
-            this.x -= this.width;
+            this.x -= this.speedX;
         }
     }
 
@@ -55,7 +53,7 @@ class Player {
         if (this.x === canvas.width - this.width) {
             this.x = canvas.width - this.width;
         } else {
-            this.x += this.width;
+            this.x += this.speedX;
         }
     }
 
@@ -83,6 +81,7 @@ class Obstacle {
         this.width = 100;
         this.height = 100;
         this.color = 'red';
+        this.speedX = 2;
     }
 
     createObstacle() {
@@ -91,7 +90,7 @@ class Obstacle {
     }
 
     moveObstacle() {
-        this.x -= 2;
+        this.x -= this.speedX;
         // if (this.x < -200) {
         //      this.x = 1000;
         // }
@@ -105,6 +104,7 @@ class Target {
         this.width = 100;
         this.height = 100;
         this.color = 'green';
+        this.speedX = 5;
     }
 
     createTarget() {
@@ -113,7 +113,7 @@ class Target {
     }
 
     moveTarget() {
-        this.x -= 5;
+        this.x -= this.speedX;
         //  if (this.x < -200) {
         //     this.x = 1000;
         //   }
