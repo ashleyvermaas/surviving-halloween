@@ -8,6 +8,10 @@ class Player {
         this.width = 100;
         this.height = 100;
         this.color = 'black';
+        // this.speedX = 0;
+        // this.speedY = 0;
+        // this.gravity = 0.05;
+        // this.gravitySpeed = 0;
     }
 
     createPlayer() {
@@ -16,7 +20,7 @@ class Player {
     }
 
     jump() {
-        if (this.y === 0) {
+        if (this.y === 0 || this.y - this.height === 0) {
             this.y = 0;
         } else {
             this.y -= 200;
@@ -60,15 +64,15 @@ class Player {
             this.x + this.width > obstacle.x &&
             this.y < obstacle.y + obstacle.height &&
             this.y + this.height > obstacle.y) {
-                this.color = 'purple';
-            }
+            this.color = 'orange';
+        }
 
-            if (this.x < target.x + target.width &&
-                this.x + this.width > target.x &&
-                this.y < target.y + target.height &&
-                this.y + this.height > target.y) {
-                    this.color = 'yellow';
-                }
+        if (this.x < target.x + target.width &&
+            this.x + this.width > target.x &&
+            this.y < target.y + target.height &&
+            this.y + this.height > target.y) {
+            this.color = 'pink';
+        }
     }
 }
 
@@ -78,16 +82,16 @@ class Obstacle {
         this.y = 400;
         this.width = 100;
         this.height = 100;
+        this.color = 'red';
     }
 
     createObstacle() {
-        ctx.fillStyle = 'red';
+        ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 
     moveObstacle() {
-        requestAnimationFrame(obstacle.moveObstacle);
-        this.x -= 50;
+        this.x -= 2;
         // if (this.x < -200) {
         //      this.x = 1000;
         // }
@@ -100,19 +104,19 @@ class Target {
         this.y = 300;
         this.width = 100;
         this.height = 100;
+        this.color = 'green';
     }
 
     createTarget() {
-        ctx.fillStyle = 'green';
+        ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 
     moveTarget() {
-        requestAnimationFrame(target.moveTarget);
-        this.x -= 50;
+        this.x -= 5;
         //  if (this.x < -200) {
         //     this.x = 1000;
-        //  }
+        //   }
     }
 }
 

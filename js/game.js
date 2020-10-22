@@ -27,12 +27,12 @@ document.addEventListener('keydown', e => {
             console.log('right', player);
             break;
     }
-    updateCanvas();
 });
 
 
 
 function updateCanvas() {
+    requestAnimationFrame(updateCanvas);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     player.createPlayer();
     obstacle.createObstacle();
@@ -42,4 +42,4 @@ function updateCanvas() {
     player.detectCollision();
 }
 
-setInterval(updateCanvas, 200);
+window.addEventListener("load", function(){ updateCanvas(); });
