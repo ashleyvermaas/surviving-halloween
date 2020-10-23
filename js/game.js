@@ -1,4 +1,18 @@
 class Game {
+    constructor() {
+        this.score = 0;
+    }
+
+    startGame(){
+
+    }
+
+    endGame(){
+        console.log('GAME OVER');
+    }
+
+
+
 
 }
 
@@ -32,8 +46,13 @@ function updateCanvas() {
     obstacle.moveObstacle();
     target.moveTarget();
     player.detectCollision();
+    obstacleArray.forEach(obstacle => {
+        obstacle.update();
+    });
 }
 
 window.addEventListener("load", function () {
     updateCanvas();
 });
+
+const game = new Game();
