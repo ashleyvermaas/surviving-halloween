@@ -3,11 +3,11 @@ class Game {
         this.score = 0;
     }
 
-    startGame(){
+    startGame() {
 
     }
 
-    endGame(){
+    endGame() {
         console.log('GAME OVER');
     }
 
@@ -41,9 +41,9 @@ function updateCanvas() {
     requestAnimationFrame(updateCanvas);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     player.createPlayer();
-    obstacle.createObstacle();
+    // obstacle.createObstacle();
     target.createTarget();
-    obstacle.moveObstacle();
+    // obstacle.moveObstacle();
     target.moveTarget();
     player.detectCollision();
     obstacleArray.forEach(obstacle => {

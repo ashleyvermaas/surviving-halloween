@@ -57,17 +57,20 @@ class Player {
         }
     }
 
+
+    // UPDATE COLLISION METHOD
     detectCollision() {
-        if (this.x < obstacle.x + obstacle.width &&
-            this.x + this.width > obstacle.x &&
-            this.y < obstacle.y + obstacle.height &&
-            this.y + this.height > obstacle.y) {
+        obstacleArray.forEach(obstacle => {
+            if (this.x < obstacle.x + obstacle.width &&
+                this.x + this.width > obstacle.x &&
+                this.y < obstacle.y + obstacle.height &&
+                this.y + this.height > obstacle.y) {
 
-            this.color = 'orange';
+                this.color = 'orange';
 
-            game.endGame();
-        }
-
+                game.endGame();
+            }
+        });
         if (this.x < target.x + target.width &&
             this.x + this.width > target.x &&
             this.y < target.y + target.height &&
@@ -75,25 +78,21 @@ class Player {
             this.color = 'pink';
             game.score++;
         }
+
     }
 }
 
 class Obstacle {
-    constructor(x, y, width, height, color /*, speedX*/ ) {
-        // this.x = 900;
-        // this.y = 400;
-        // this.width = 100;
-        // this.height = 100;
-        // this.color = 'red';
-        // this.speedX = 2;
+    constructor(x, y /*width, height, color, speedX*/ ) {
         this.x = x;
         this.y = y;
-        this.width = width;
-        this.height = height;
-        this.color = color;
-        // this.speedX = speedX;
+        this.width = 100;
+        this.height = 100;
+        this.color = 'purple';
+        this.speedX = 2;
         this.update = () => {
             this.createObstacle();
+            this.moveObstacle();
         };
     }
 
@@ -110,6 +109,8 @@ class Obstacle {
     }
 }
 
+
+
 // UTILITY FUNCTIONS 
 function distance(x1, y1, x2, y2) {
     const xDist = x2 - x1;
@@ -117,8 +118,6 @@ function distance(x1, y1, x2, y2) {
 
     return Math.sqrt(Math.pow(xDist, 2) + Math.pow(yDist, 2));
 }
-
-
 
 // CREATE MULTIPLE OBSTACLES
 let obstacleArray;
@@ -131,25 +130,25 @@ function makeObstacles() {
 
     for (i = 0; i < 3; i++) {
 
-        let x = obstacleXPositions[Math.floor(Math.random()* obstacleXPositions.length)];
-        let y = obstacleYPositions[Math.floor(Math.random()* obstacleYPositions.length)];
-        let width = 100;
-        let height = 100;
-        let color = 'purple';
+        let x = obstacleXPositions[Math.floor(Math.random() * obstacleXPositions.length)];
+        let y = obstacleYPositions[Math.floor(Math.random() * obstacleYPositions.length)];
+        //  let width = 100;
+        //  let height = 100;
+        //  let color = 'purple';
+        //  let speedX = 2;
 
         if (i !== 0) {
             for (j = 0; j < obstacleArray.length; j++) {
-                if (distance(x, y, obstacleArray[j].x, obstacleArray[j].y) - height < 0) {
-                     x = obstacleXPositions[Math.floor(Math.random()* obstacleXPositions.length)];
-                     y = obstacleYPositions[Math.floor(Math.random()* obstacleYPositions.length)];
+                if (distance(x, y, obstacleArray[j].x, obstacleArray[j].y) - 100 < 0) {
+                    x = obstacleXPositions[Math.floor(Math.random() * obstacleXPositions.length)];
+                    y = obstacleYPositions[Math.floor(Math.random() * obstacleYPositions.length)];
 
-                     j = -1;
+                    j = -1;
                 }
 
             }
         }
-
-        obstacleArray.push(new Obstacle(x, y, width, height, color));
+        obstacleArray.push(new Obstacle(x, y /*width, height, speedX*/ ));
     }
 }
 
