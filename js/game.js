@@ -40,15 +40,16 @@ document.addEventListener('keydown', e => {
 function updateCanvas() {
     requestAnimationFrame(updateCanvas);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    player.createPlayer();
-    // obstacle.createObstacle();
-    target.createTarget();
+    player.drawPlayer();
+    // obstacle.drawObstacle();
+    //target.drawTarget();
     // obstacle.moveObstacle();
-    target.moveTarget();
+    //target.moveTarget();
     player.detectCollision();
     obstacleArray.forEach(obstacle => {
         obstacle.update();
     });
+
 }
 
 window.addEventListener("load", function () {

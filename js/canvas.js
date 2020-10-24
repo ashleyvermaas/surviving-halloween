@@ -12,7 +12,7 @@ class Player {
         this.speedY = this.height;
     }
 
-    createPlayer() {
+    drawPlayer() {
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
     }
@@ -23,7 +23,7 @@ class Player {
         } else {
             this.y -= this.speedY * 2;
         }
-    }
+    } // TIMER? set timeout
 
     moveUp() {
         if (this.y === 0) {
@@ -57,8 +57,6 @@ class Player {
         }
     }
 
-
-    // UPDATE COLLISION METHOD
     detectCollision() {
         obstacleArray.forEach(obstacle => {
             if (this.x < obstacle.x + obstacle.width &&
@@ -83,20 +81,20 @@ class Player {
 }
 
 class Obstacle {
-    constructor(x, y /*width, height, color, speedX*/ ) {
-        this.x = x;
+    constructor(y) {
+        this.x = 1000;
         this.y = y;
         this.width = 100;
         this.height = 100;
         this.color = 'purple';
         this.speedX = 2;
         this.update = () => {
-            this.createObstacle();
+            this.drawObstacle();
             this.moveObstacle();
         };
     }
 
-    createObstacle() {
+    drawObstacle() {
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
     }
@@ -120,39 +118,41 @@ function distance(x1, y1, x2, y2) {
 }
 
 // CREATE MULTIPLE OBSTACLES
-let obstacleArray;
-let obstaclePositions;
+let obstacleArray = [];
+let obstacleYPositions;
+let obstacleXPositions;
 
 function makeObstacles() {
-    obstacleArray = [];
     obstacleYPositions = [200, 300, 400];
-    obstacleXPositions = [400, 500, 600, 700, 800, 900];
+    obstacleXPositions = [1000];
+    // 
+    // COULD ADD ARRAY / RANDOM WIDTH, HEIGHT, COLOR, SPEED
 
-    for (i = 0; i < 3; i++) {
+    /*for (i = 0; i < 3; i++) {*/
 
-        let x = obstacleXPositions[Math.floor(Math.random() * obstacleXPositions.length)];
-        let y = obstacleYPositions[Math.floor(Math.random() * obstacleYPositions.length)];
-        //  let width = 100;
-        //  let height = 100;
-        //  let color = 'purple';
-        //  let speedX = 2;
+    //let x = obstacleXPositions[Math.floor(Math.random() * obstacleXPositions.length)];
+    let y = obstacleYPositions[Math.floor(Math.random() * obstacleYPositions.length)];
+    //  let width = 100;
+    //  let height = 100;
+    //  let color = 'purple';
+    //  let speedX = 2;
 
-        if (i !== 0) {
-            for (j = 0; j < obstacleArray.length; j++) {
-                if (distance(x, y, obstacleArray[j].x, obstacleArray[j].y) - 100 < 0) {
-                    x = obstacleXPositions[Math.floor(Math.random() * obstacleXPositions.length)];
-                    y = obstacleYPositions[Math.floor(Math.random() * obstacleYPositions.length)];
+    // if (i !== 0) {
+    // for (j = 0; j < obstacleArray.length; j++) {
+    //     if (distance(x, y, obstacleArray[j].x, obstacleArray[j].y) - 100 < 0) {
+    //         x = obstacleXPositions[Math.floor(Math.random() * obstacleXPositions.length)];
+    //         y = obstacleYPositions[Math.floor(Math.random() * obstacleYPositions.length)];
 
-                    j = -1;
-                }
+    //         j = -1;
+    //     }
 
-            }
-        }
-        obstacleArray.push(new Obstacle(x, y /*width, height, speedX*/ ));
-    }
+    // }
+    // }
+    obstacleArray.push(new Obstacle(y));
+    /*}*/
 }
 
-makeObstacles();
+setInterval(makeObstacles, 3000);
 
 
 class Target {
@@ -165,7 +165,7 @@ class Target {
         this.speedX = 5;
     }
 
-    createTarget() {
+    drawTarget() {
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
     }
