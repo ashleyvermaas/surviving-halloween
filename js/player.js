@@ -15,38 +15,6 @@ class Player {
         ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 
-    moveUp() {
-        if (this.y === 0) {
-            this.y = 0;
-        } else {
-            this.y -= this.speedY;
-        }
-    }
-
-    moveDown() {
-        if (this.y === canvas.height - this.height) {
-            this.y = canvas.height - this.height;
-        } else {
-            this.y += this.speedY;
-        }
-    }
-
-    moveLeft() {
-        if (this.x === 0) {
-            this.x = 0;
-        } else {
-            this.x -= this.speedX;
-        }
-    }
-
-    moveRight() {
-        if (this.x === canvas.width - this.width) {
-            this.x = canvas.width - this.width;
-        } else {
-            this.x += this.speedX;
-        }
-    }
-
     detectCollision() {
         obstacleArray.forEach(obstacle => {
             if (this.x < obstacle.x + obstacle.width &&

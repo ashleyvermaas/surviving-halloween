@@ -6,6 +6,7 @@ class Game {
 
     startGame() {
 
+
     }
 
     endGame() {
@@ -19,7 +20,6 @@ class Game {
 let obstacleArray = [];
 let obstacleYPositions;
 
-
 function makeObstacles() {
     obstacleYPositions = [0, 100, 200, 300, 400];
     let y = obstacleYPositions[Math.floor(Math.random() * obstacleYPositions.length)];
@@ -27,9 +27,7 @@ function makeObstacles() {
     obstacleArray.push(new Obstacle(y));
 
 }
-
 setInterval(makeObstacles, 500);
-
 
 
 // Put classes in variables

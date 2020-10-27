@@ -3,16 +3,32 @@
 document.addEventListener('keydown', e => {
     switch (e.keyCode) {
         case 38:
-            player.moveUp();
+            if (player.y === 0) {
+                player.y = 0;
+            } else {
+                player.y -= player.speedY;
+            }
             break;
         case 40:
-            player.moveDown();
+            if (player.y === canvas.height - player.height) {
+                player.y = canvas.height - player.height;
+            } else {
+                player.y += player.speedY;
+            }
             break;
         case 37:
-            player.moveLeft();
+            if (player.x === 0) {
+                player.x = 0;
+            } else {
+                player.x -= player.speedX;
+            }
             break;
         case 39:
-            player.moveRight();
+            if (player.x === canvas.width - player.width) {
+                player.x = canvas.width - player.width;
+            } else {
+                player.x += player.speedX;
+            }
             break;
     }
 });

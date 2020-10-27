@@ -4,8 +4,7 @@ const ctx = canvas.getContext('2d');
 function updateCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     player.drawPlayer();
-
-    let hasCollision = player.detectCollision();
+    player.detectCollision();
     obstacleArray.forEach(obstacle => {
         obstacle.update();
     });
@@ -13,5 +12,4 @@ function updateCanvas() {
     if (!player.hasCollision) {
         requestAnimationFrame(updateCanvas);
     }
-
 }
