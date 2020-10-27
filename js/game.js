@@ -1,6 +1,7 @@
 class Game {
     constructor() {
         this.score = 0;
+
     }
 
     startGame() {
@@ -11,49 +12,30 @@ class Game {
         console.log('GAME OVER');
     }
 
+}
 
 
+// Create multiple obstacles
+let obstacleArray = [];
+let obstacleYPositions;
+
+
+function makeObstacles() {
+    obstacleYPositions = [0, 100, 200, 300, 400];
+    let y = obstacleYPositions[Math.floor(Math.random() * obstacleYPositions.length)];
+
+    obstacleArray.push(new Obstacle(y));
 
 }
 
-document.addEventListener('keydown', e => {
-    switch (e.keyCode) {
-        case 16:
-            player.jump();
-            break;
-        case 38:
-            player.moveUp();
-            break;
-        case 40:
-            player.moveDown();
-            break;
-        case 37:
-            player.moveLeft();
-            break;
-        case 39:
-            player.moveRight();
-            break;
-    }
-});
+setInterval(makeObstacles, 500);
 
 
-function updateCanvas() {
-    requestAnimationFrame(updateCanvas);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    player.drawPlayer();
-    // obstacle.drawObstacle();
-    //target.drawTarget();
-    // obstacle.moveObstacle();
-    //target.moveTarget();
-    player.detectCollision();
-    obstacleArray.forEach(obstacle => {
-        obstacle.update();
-    });
 
-}
-
-window.addEventListener("load", function () {
-    updateCanvas();
-});
-
+// Put classes in variables
 const game = new Game();
+const player = new Player();
+const obstacle = new Obstacle();
+
+// Optional Target Class
+// const target = new Target();

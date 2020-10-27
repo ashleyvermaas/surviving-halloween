@@ -1,3 +1,11 @@
-canvas {
-    border: 2px solid red;
+body {
+    background-color: black;
+}
+
+#canvas {
+    border: 5px solid white;
+    display: block;
+    margin: 0px auto;
+    margin-top: 5%;
+    background-color: #789BE8;
 }
