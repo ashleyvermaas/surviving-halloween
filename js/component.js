@@ -10,9 +10,8 @@ class Component {
         this.color = color;
     }
 
-    drawComponent(){
+    drawComponent() {
         ctx.fillStyle = this.color;
         ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 }
-

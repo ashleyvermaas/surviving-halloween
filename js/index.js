@@ -35,4 +35,7 @@ document.addEventListener('keydown', e => {
 
 window.addEventListener("load", function () {
     updateCanvas();
+
+    // put in function start game
+    setInterval(game.makeObstacles, 500);
 });
