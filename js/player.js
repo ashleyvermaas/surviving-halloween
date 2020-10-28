@@ -1,5 +1,6 @@
-class Player {
-    constructor() {
+class Player extends Component {
+    constructor( x, y, w, h, speedX) {
+        super( x, y, w, h, speedX);
         this.x = 0;
         this.y = 400;
         this.width = 100;

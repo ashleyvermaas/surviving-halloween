@@ -1,20 +1,10 @@
-class Obstacle {
-    constructor(y) {
-        this.x = 1000;
-        this.y = y;
-        this.width = 100;
-        this.height = 100;
-        this.color = 'white';
-        this.speedX = 4;
+class Obstacle extends Component {
+    constructor( x, y, w, h, speedX, color) {
+        super(x, y, w, h, speedX, color);
         this.update = () => {
-            this.drawObstacle();
+            this.drawComponent();
             this.moveObstacle();
         };
-    }
-
-    drawObstacle() {
-        ctx.fillStyle = this.color;
-        ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 
     moveObstacle() {
