@@ -9,6 +9,7 @@ function drawScore() {
     ctx.fillStyle = 'black';
     ctx.font = '20px Arial';
     ctx.fillText(`Score: ${game.score}`, 0, 40);
+    //console.log(game.score)
 }
 
 function updateCanvas() {
@@ -19,6 +20,7 @@ function updateCanvas() {
     if (!game.player.hasCollision) {
         requestAnimationFrame(updateCanvas);
     } else {
-        game.loseGame();
+        //console.log(game)
+        game.endGame();
     }
 }

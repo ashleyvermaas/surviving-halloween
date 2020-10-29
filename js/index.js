@@ -1,5 +1,7 @@
 // File for for DOM & on load & event handlers (index.js) 
 
+let game;
+
 let startButton = document.getElementById('start-button');
 let startScreen = document.getElementById('start-screen');
 let endScreen = document.getElementById('end-screen');
@@ -46,11 +48,13 @@ window.addEventListener("load", function () {
 
 startButton.addEventListener('click', event => {
     swapToCanvas();
+    game = new Game();
     game.startGame();
 });
 
 tryAgainButton.addEventListener('click', event => {
     swapToCanvas();
+    game = new Game();
     game.startGame();
 
 });

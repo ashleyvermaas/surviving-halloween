@@ -9,19 +9,30 @@ class Game {
                 obstacle.update();
             });
         };
+        this.intervalId = null;
+        this.setScore = null;
     }
 
     startGame() {
         updateCanvas();
-        setInterval(this.makeObstacles, 1000);
-        let scoreInterval = setInterval(game.addScore, 1000);
+        this.intervalId = setInterval(this.makeObstacles, 500);
+        // put 500 in variable
+
+        this.levelUp();
+
+        this.setScore = setInterval(game.addScore, 1000)
         // if (this.player.hasCollision) {
         //     clearInterval(scoreInterval);
         // }
+        console.log(this.setScore)
     }
 
-    loseGame() {
+
+
+    endGame() {
+        clearInterval(this.intervalId);
         setTimeout(swapToEndScreen, 500);
+
         console.log(game.score);
     }
 
@@ -31,13 +42,13 @@ class Game {
         }
 
     }
-
+    
     makeObstacles() {
         let obstacleYPositions = [0, 100, 200, 300, 400];
         let y = obstacleYPositions[Math.floor(Math.random() * obstacleYPositions.length)];
         obstacle = new Obstacle(canvas.width, y, 100, 100, 'white');
         game.obstacleArray.push(obstacle);
-
+        console.log('obstacles running')
     }
 
     addScore() {
@@ -45,25 +56,29 @@ class Game {
     }
 
     levelUp() {
-        switch (this.score) {
-            case 10:
-                this.obstacleArray.speedX = 0;  
+        console.log(obstacle)
+        switch (game.score) {
+            case 5:
+                obstacle.speedX = 0;
                 console.log(obstacle.speedX);
                 break;
         }
-
+        
         //level up obstacle speed & interval
     }
 
 }
 
-const game = new Game();
+
 // const obstacle = new Obstacle();
-let obstacle;
+var obstacle;
+//console.log(obstacle)
 
 
 // QUESTIONS
 // How to prevent obstacles from lining up on Y-axis or in stairs thus blocking player?
+
+
 // Where put the setInterval? 
 // Where put clearInterval for score? Can't find out how to stop score from incrementing after game over.
 // How to increment setInterval time with levels?

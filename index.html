@@ -10,39 +10,40 @@
 </head>
 
 <body>
+    <div id="container">
+        <div id="content-wrap">
+            <div id="start-screen">
+                <h1>My First Game</h1>
+                <p>Instructions</p>
+                <button id="start-button" class="new-game">START</button>
+            </div>
 
-    <div id="start-screen">
-        <h1>My First Game</h1>
-        <p>Instructions</p>
-        <button id="start-button">START</button>
-    </div>
+            <div id="end-screen">
+                <h1>GAME OVER</h1>
+                <p>Don't give up</p>
+                <button id="try-again-button" class="new-game">TRY AGAIN</button>
+            </div>
 
-    
+            <p></p>
+            <canvas id="canvas" width=1100 height=500></canvas>
+            <!-- <div id="win-screen"></div> -->
 
-    <div id="end-screen">
-        <h1>GAME OVER</h1>
-        <p>Don't give up</p>
-        <button id="try-again-button">TRY AGAIN</button>
-    </div>
-    
-    <canvas id="canvas" width=1100 height=500></canvas>
-    <!-- <div id="win-screen"></div> -->
-
-    <!-- <div id="sound-icons">
+            <!-- <div id="sound-icons">
         <img src="" alt="sound off image">
         <img src="" alt="sound on image">
+    </div> -->
+
+
+        </div>
+        <footer id="footer"> © 2020 Ashley Vermaas</footer>
     </div>
-
-    
-
-    <footer> © 2020 Vermaas</footer> -->
-
     <script src="js/canvas.js"></script>
     <script src="js/component.js"></script>
     <script src="js/player.js"></script>
+    <script src="js/game.js"></script>
     <script src="js/obstacle.js"></script>
     <script src="js/target.js"></script>
-    <script src="js/game.js"></script>
+    
     <script src="js/index.js"></script>
 </body>
 

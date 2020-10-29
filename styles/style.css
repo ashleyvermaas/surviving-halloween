@@ -1,5 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-color: white;
+    font-family: monospace;
 }
 
 canvas {
@@ -22,3 +28,20 @@ canvas {
     background-color: rgb(255, 145, 163);
     /* position: fixed; */
 }
+
+#start-button, #try-again-button {
+    padding: 10px 40px;
+    font-family: monospace;
+}
+
+#footer {
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center; 
+}
+
+
+
+
+/* ALSO ADD SCORE WITH SAME FONT FAMILY */
