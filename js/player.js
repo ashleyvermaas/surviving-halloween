@@ -18,8 +18,6 @@ class Player extends Component {
                 this.y + this.height > obstacle.y) {
 
                 this.hasCollision = true;
-
-                game.endGame();
             }
         });
     }

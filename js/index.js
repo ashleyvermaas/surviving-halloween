@@ -2,9 +2,11 @@
 
 let startButton = document.getElementById('start-button');
 let startScreen = document.getElementById('start-screen');
+let endScreen = document.getElementById('end-screen');
+let tryAgainButton = document.getElementById('try-again-button');
 let body = document.querySelector('body');
 const game = new Game();
-
+let scoreInterval = setInterval(game.addScore, 1000);
 
 document.addEventListener('keydown', e => {
     switch (e.keyCode) {
@@ -41,10 +43,17 @@ document.addEventListener('keydown', e => {
 
 window.addEventListener("load", function () {
     canvas.remove();
+    endScreen.remove();
 });
 
 
-
 startButton.addEventListener('click', event => {
+    game.swapToCanvas();
     game.startGame();
+});
+
+tryAgainButton.addEventListener('click', event => {
+    game.swapToCanvas();
+    game.startGame();
+
 });
