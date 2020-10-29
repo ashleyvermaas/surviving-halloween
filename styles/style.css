@@ -4,9 +4,21 @@ body {
 
 canvas {
     border: 5px solid #789BE8;
-    ;
     display: block;
     margin: 0px auto;
     margin-top: 5%;
     background-color: #789BE8;
+    /* position: fixed; */
+}
+
+#start-screen, #end-screen {
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto;
+    margin-top: 10%;
+    align-items: center;
+    width: 1000px;
+    height: 400px;
+    background-color: rgb(255, 145, 163);
+    /* position: fixed; */
 }

@@ -14,24 +14,29 @@ class Game {
     startGame() {
         updateCanvas();
         setInterval(this.makeObstacles, 1000);
+        let scoreInterval = setInterval(game.addScore, 1000);
+        // if (this.player.hasCollision) {
+        //     clearInterval(scoreInterval);
+        // }
     }
 
     loseGame() {
         setTimeout(swapToEndScreen, 500);
-        clearInterval(scoreInterval);
         console.log(game.score);
     }
 
     winGame() {
-        console.log('You won!');
+        if (game.score === 100) {
+            console.log('You won!');
+        }
 
     }
 
     makeObstacles() {
         let obstacleYPositions = [0, 100, 200, 300, 400];
         let y = obstacleYPositions[Math.floor(Math.random() * obstacleYPositions.length)];
-
-        game.obstacleArray.push(new Obstacle(canvas.width, y, 100, 100, 'white'));
+        obstacle = new Obstacle(canvas.width, y, 100, 100, 'white');
+        game.obstacleArray.push(obstacle);
 
     }
 
@@ -39,19 +44,28 @@ class Game {
         game.score++;
     }
 
-    // changeLevel() {
-    //     if (game.score === ..) {
-    //         winGame()
-    //     } else {}
-    // }
+    levelUp() {
+        switch (this.score) {
+            case 10:
+                this.obstacleArray.speedX = 0;  
+                console.log(obstacle.speedX);
+                break;
+        }
+
+        //level up obstacle speed & interval
+    }
 
 }
 
 const game = new Game();
-let scoreInterval = setInterval(game.addScore, 1000);
+// const obstacle = new Obstacle();
+let obstacle;
 
 
 // QUESTIONS
-// Prevent obstacles from lining up on Y-axis or in stairs, blocking player
-// Where put the setInterval? How to increment setInterval time with levels?
-// How to make game / canvas restart? 
+// How to prevent obstacles from lining up on Y-axis or in stairs thus blocking player?
+// Where put the setInterval? 
+// Where put clearInterval for score? Can't find out how to stop score from incrementing after game over.
+// How to increment setInterval time with levels?
+// How to increment obstacle speedX with levels?
+// How to make game / canvas restart with try again button?
