@@ -5,8 +5,6 @@ let startScreen = document.getElementById('start-screen');
 let endScreen = document.getElementById('end-screen');
 let tryAgainButton = document.getElementById('try-again-button');
 let body = document.querySelector('body');
-const game = new Game();
-let scoreInterval = setInterval(game.addScore, 1000);
 
 document.addEventListener('keydown', e => {
     switch (e.keyCode) {
@@ -46,14 +44,24 @@ window.addEventListener("load", function () {
     endScreen.remove();
 });
 
-
 startButton.addEventListener('click', event => {
-    game.swapToCanvas();
+    swapToCanvas();
     game.startGame();
 });
 
 tryAgainButton.addEventListener('click', event => {
-    game.swapToCanvas();
+    swapToCanvas();
     game.startGame();
 
 });
+
+function swapToCanvas() {
+    startScreen.remove();
+    endScreen.remove();
+    body.appendChild(canvas);
+}
+
+function swapToEndScreen() {
+    canvas.remove();
+    body.appendChild(endScreen);
+}
