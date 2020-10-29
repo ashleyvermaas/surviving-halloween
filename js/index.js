@@ -1,41 +1,50 @@
 // File for for DOM & on load & event handlers (index.js) 
 
+let startButton = document.getElementById('start-button');
+let startScreen = document.getElementById('start-screen');
+let body = document.querySelector('body');
+const game = new Game();
+
+
 document.addEventListener('keydown', e => {
     switch (e.keyCode) {
         case 38:
-            if (player.y === 0) {
-                player.y = 0;
+            if (game.player.y === 0) {
+                game.player.y = 0;
             } else {
-                player.y -= player.speedY;
+                game.player.y -= game.player.speedY;
             }
             break;
         case 40:
-            if (player.y === canvas.height - player.height) {
-                player.y = canvas.height - player.height;
+            if (game.player.y === canvas.height - game.player.height) {
+                game.player.y = canvas.height - game.player.height;
             } else {
-                player.y += player.speedY;
+                game.player.y += game.player.speedY;
             }
             break;
         case 37:
-            if (player.x === 0) {
-                player.x = 0;
+            if (game.player.x === 0) {
+                game.player.x = 0;
             } else {
-                player.x -= player.speedX;
+                game.player.x -= game.player.speedX;
             }
             break;
         case 39:
-            if (player.x === canvas.width - player.width) {
-                player.x = canvas.width - player.width;
+            if (game.player.x === canvas.width - game.player.width) {
+                game.player.x = canvas.width - game.player.width;
             } else {
-                player.x += player.speedX;
+                game.player.x += game.player.speedX;
             }
             break;
     }
 });
 
 window.addEventListener("load", function () {
-    updateCanvas();
+    canvas.remove();
+});
 
-    // put in function start game
-    setInterval(game.makeObstacles, 500);
+
+
+startButton.addEventListener('click', event => {
+    game.startGame();
 });

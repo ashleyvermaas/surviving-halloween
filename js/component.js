@@ -1,12 +1,9 @@
-//Create class Element --> Player and Obstacle can inherit
-
 class Component {
-    constructor(x, y, w, h, speedX, color) {
+    constructor(x, y, w, h, color) {
         this.x = x;
         this.y = y;
         this.width = w;
         this.height = h;
-        this.speedX = speedX;
         this.color = color;
     }
 

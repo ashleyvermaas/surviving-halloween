@@ -1,7 +1,9 @@
 class Game {
     constructor() {
         this.score = 0;
+        this.timer = 0;
         this.obstacleArray = [];
+        this.player = new Player(0, 400, 100, 100, 'black');
 
     }
 
@@ -10,8 +12,9 @@ class Game {
     }
 
     startGame() {
-
-
+        this.swapToCanvas();
+        updateCanvas();
+        setInterval(this.makeObstacles, 1000);
     }
 
     endGame() {
@@ -21,18 +24,28 @@ class Game {
     makeObstacles() {
         let obstacleYPositions = [0, 100, 200, 300, 400];
         let y = obstacleYPositions[Math.floor(Math.random() * obstacleYPositions.length)];
-
-        game.obstacleArray.push(new Obstacle(1000, y, 100, 100, 4, 'white'));
+        // Compare the Y positions to prevent all are the same
+        game.obstacleArray.push(new Obstacle(canvas.width, y, 100, 100, 'white'));
 
         // setInterval(() => {
-        //     makeObstacles();
+        //     makeObstacles;
         // }, 1000);
     }
+
+    clear() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    swapToCanvas() {
+        startScreen.remove();
+        body.appendChild(canvas);
+    }
+
 
 }
 
 
-
-// Put classes in variables
-const game = new Game();
-const player = new Player(0, 400, 100, 100, 100, 100, 'black');
+// QUESTIONS
+// Where to put the class variables?
+// Prevent obstacles from lining up on Y-axis or in stairs, blocking player
+// Where put the setInterval? How to increment setInterval time with levels?
