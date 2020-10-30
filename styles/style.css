@@ -23,7 +23,7 @@ canvas {
 }
 
 #start-screen,
-#end-screen {
+#end-screen, #win-screen {
     display: flex;
     flex-direction: column;
     margin: 0px auto;
@@ -45,7 +45,7 @@ h1 {
     font-size: 22px;
 }
 
-#instructions-text {
+.text {
     padding-top: 20px;
     font-size: 17px;
 }
@@ -53,6 +53,10 @@ h1 {
 button {
     font-size: 20px;
     margin-top: 40px;
+}
+
+#final-score {
+    font-size: 30px;
 }
 
 #start-button,

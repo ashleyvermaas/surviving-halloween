@@ -10,8 +10,9 @@ let body = document.querySelector('body');
 let currentScore;
 //let endScore;
 let scoreDisplay = document.getElementById('score-display');
-var backgroundMusic = new Audio('/audio/bensound-theduel.mp3');
-var laughAudio = new Audio('/audio/Evil_Laugh_1-Timothy-64737261.mp3');
+let backgroundMusic = new Audio('/audio/bensound-theduel.mp3');
+let laughAudio = new Audio('/audio/Evil_Laugh_1-Timothy-64737261.mp3');
+let winAudio = new Audio('/audio/Ta Da-SoundBible.com-1884170640.mp3');
 
 document.addEventListener('keydown', e => {
     switch (e.keyCode) {
@@ -75,19 +76,23 @@ function swapToCanvas() {
 }
 
 function swapToEndScreen() {
-     backgroundMusic.pause();
+    backgroundMusic.pause();
     backgroundMusic.currentTime = 0;
     laughAudio.play();
     canvas.remove();
     body.appendChild(endScreen);
-    showEndScore();
-   
+    //showEndScore();
+
 }
 
 function swapToWinScreen() {
+    backgroundMusic.pause();
+    backgroundMusic.currentTime = 0;
+    game = new Game();
     canvas.remove();
+    scoreDisplay.remove();
     body.appendChild(winScreen);
-
+    currentScore.innerHTML = 100;
 }
 
 function showCurrentScore() {
@@ -101,3 +106,5 @@ function showCurrentScore() {
 //     endScore.innerHTML = currentScore.innerHTML;
 // }
 
+
+// NEEDS REFACTORING!

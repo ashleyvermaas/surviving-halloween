@@ -119,7 +119,7 @@ class Game {
         }
 
         // winGame
-        if (this.score === 100) {
+        if (this.score === 5) {
             this.winGame();
         }
     }
