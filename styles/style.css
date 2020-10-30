@@ -9,11 +9,12 @@ body {
 }
 
 canvas {
-    border: 5px solid #789BE8;
+    border: none;
     display: block;
     margin: 0px auto;
     margin-top: 5%;
     background-color: #789BE8;
+    background-image: url("/images/Copy\ of\ Untitled.png");
     /* position: fixed; */
 }
 
