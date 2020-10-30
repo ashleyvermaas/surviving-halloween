@@ -15,13 +15,11 @@ function clear() {
 function updateCanvas() {
     clear();
     game.update();
-    showScore();
-    //drawScore();
-    
+    showCurrentScore();
+
     if (!game.player.hasCollision) {
         requestAnimationFrame(updateCanvas);
     } else {
-        //console.log(game)
         game.endGame();
     }
 }

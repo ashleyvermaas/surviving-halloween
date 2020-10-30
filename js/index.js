@@ -1,12 +1,13 @@
 // File for for DOM & on load & event handlers (index.js) 
 
 let game;
-
 let startButton = document.getElementById('start-button');
 let startScreen = document.getElementById('start-screen');
 let endScreen = document.getElementById('end-screen');
 let tryAgainButton = document.getElementById('try-again-button');
 let body = document.querySelector('body');
+let currentScore;
+let endScore;
 
 document.addEventListener('keydown', e => {
     switch (e.keyCode) {
@@ -68,11 +69,15 @@ function swapToCanvas() {
 function swapToEndScreen() {
     canvas.remove();
     body.appendChild(endScreen);
+    showEndScore();
 }
 
-function showScore() {
-    var score = document.getElementById('score');
-    // var number = computerScore.innerHTML;
-    // number++;
-    score.innerHTML = game.score;
+function showCurrentScore() {
+   currentScore = document.getElementById('score'); 
+   currentScore.innerHTML = game.score;
+}
+
+function showEndScore(){
+    endScore = document.getElementById('end-score');
+    endScore.innerHTML = currentScore.innerHTML;
 }

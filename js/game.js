@@ -1,6 +1,7 @@
 class Game {
     constructor() {
         this.score = 0;
+        this.endScore = this.score;
         this.obstacleArray = [];
         this.player = new Player(0, 400, 100, 100, 'black');
         this.update = () => {
@@ -20,7 +21,7 @@ class Game {
 
         this.levelUp();
 
-        this.setScore = setInterval(game.addScore, 1000)
+        this.setScore = setInterval(game.addScore, 1000);
         // if (this.player.hasCollision) {
         //     clearInterval(scoreInterval);
         // }
@@ -32,10 +33,10 @@ class Game {
     endGame() {
         clearInterval(this.intervalId);
         setTimeout(swapToEndScreen, 500);
-
         console.log(game.score);
+        
 
-        // end game should show score 
+        // end game should show score
     }
 
     winGame() {
