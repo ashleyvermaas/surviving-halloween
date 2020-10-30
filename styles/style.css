@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: black; /*rgb(56, 0, 51)*/
+    background-color: black;
     font-family: monospace;
     color: white;
     background-image: url("/images/pixel-art-background-4769.png");
@@ -22,8 +22,15 @@ canvas {
     /* position: fixed; */
 }
 
+h1 {
+    font-size: 70px;
+    padding: 60px 0px 30px 0px;
+    color: rgb(156, 23, 156);
+}
+
 #start-screen,
-#end-screen, #win-screen {
+#end-screen,
+#win-screen {
     display: flex;
     flex-direction: column;
     margin: 0px auto;
@@ -32,17 +39,17 @@ canvas {
     width: 1200px;
     height: 500px;
     background-color: rgba(0, 0, 0, 0.856);
-    ;
-    /* position: fixed; */
-}
-
-h1 {
-    font-size: 70px;
-    padding: 60px 0px 30px 0px;
 }
 
 #instructions-title {
     font-size: 22px;
+    color: green;
+}
+
+#gameover-title {
+    color: green;
+    font-size: 30px;
+    padding-top: 0px;
 }
 
 .text {
@@ -50,19 +57,31 @@ h1 {
     font-size: 17px;
 }
 
+#happy-halloween {
+    font-size: 30px;
+    padding-top: 40px;
+    color: green;
+}
+
 button {
     font-size: 20px;
     margin-top: 40px;
 }
 
-#final-score {
-    font-size: 30px;
+button:hover {
+    background-color: rgba(128, 0, 128, 0.856);
+    border: purple;
 }
 
 #start-button,
 #try-again-button {
     padding: 10px 40px;
     font-family: monospace;
+}
+
+#final-score {
+    font-size: 30px;
+    padding-bottom: 10px;
 }
 
 #score-display {

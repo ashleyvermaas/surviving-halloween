@@ -13,8 +13,6 @@ function updateCanvas() {
 
     if (!game.player.hasCollision) {
         requestAnimationFrame(updateCanvas);
-    } else if (game.score === 100) {
-        game.winGame();
     } else {
         game.endGame();
     }
