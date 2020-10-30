@@ -4,6 +4,7 @@ let game;
 let startButton = document.getElementById('start-button');
 let startScreen = document.getElementById('start-screen');
 let endScreen = document.getElementById('end-screen');
+let winScreen = document.getElementById('win-screen');
 let tryAgainButton = document.getElementById('try-again-button');
 let body = document.querySelector('body');
 let currentScore;
@@ -45,6 +46,7 @@ document.addEventListener('keydown', e => {
 window.addEventListener("load", function () {
     canvas.remove();
     endScreen.remove();
+    winScreen.remove();
 });
 
 startButton.addEventListener('click', event => {
@@ -70,6 +72,12 @@ function swapToEndScreen() {
     canvas.remove();
     body.appendChild(endScreen);
     showEndScore();
+}
+
+function swapToWinScreen(){
+    canvas.remove();
+    body.appendChild(winScreen);
+
 }
 
 function showCurrentScore() {

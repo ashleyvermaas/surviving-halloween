@@ -18,12 +18,8 @@ class Game {
     startGame() {
         updateCanvas();
         this.intervalId = setInterval(this.makeObstacles, this.obstacleInterval);
-
-
         this.setScore = setInterval(game.addScore, 1000);
     }
-
-
 
     endGame() {
         clearInterval(this.intervalId);
@@ -31,10 +27,9 @@ class Game {
     }
 
     winGame() {
-        if (game.score === 100) {
-            console.log('You won!');
-        }
-        //swapToWinScreen
+        clearInterval(this.intervalId);
+        clearInterval(this.setScore);
+        swapToWinScreen();
     }
 
     makeObstacles() {
@@ -127,7 +122,6 @@ class Game {
     }
 }
 
-
 let obstacle;
 let speedX;
 
@@ -137,9 +131,4 @@ let speedX;
 // QUESTIONS
 // How to prevent obstacles from lining up on Y-axis or in stairs thus blocking player?
 
-
-// Where put the setInterval? 
-// Where put clearInterval for score? Can't find out how to stop score from incrementing after game over.
 // How to increment setInterval time with levels?
-// How to increment obstacle speedX with levels?
-// How to make game / canvas restart with try again button?
