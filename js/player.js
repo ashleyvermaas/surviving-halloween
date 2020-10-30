@@ -1,6 +1,6 @@
 class Player extends Component {
-    constructor(x, y, w, h, color) {
-        super(x, y, w, h, color);
+    constructor(x, y, w, h, src) {
+        super(x, y, w, h, src);
         this.speedX = 100;
         this.speedY = 100;
         this.hasCollision = false;

@@ -10,6 +10,7 @@ let body = document.querySelector('body');
 let currentScore;
 let endScore;
 
+
 document.addEventListener('keydown', e => {
     switch (e.keyCode) {
         case 38:

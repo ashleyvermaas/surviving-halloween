@@ -2,7 +2,7 @@ class Game {
     constructor() {
         this.score = 0;
         this.obstacleArray = [];
-        this.player = new Player(0, 400, 100, 100, 'black');
+        this.player = new Player(0, 400, 100, 100, "/images/Untitled design.png");
         this.update = () => {
             this.player.update();
             this.obstacleArray.forEach(obstacle => {
@@ -35,7 +35,7 @@ class Game {
     makeObstacles() {
         let obstacleYPositions = [0, 100, 200, 300, 400];
         let y = obstacleYPositions[Math.floor(Math.random() * obstacleYPositions.length)];
-        obstacle = new Obstacle(canvas.width, y, 100, 100, 'white');
+        obstacle = new Obstacle(canvas.width, y, 100, 100, "/images/Untitled design.png");
         game.obstacleArray.push(obstacle);
 
     }
