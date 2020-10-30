@@ -69,3 +69,10 @@ function swapToEndScreen() {
     canvas.remove();
     body.appendChild(endScreen);
 }
+
+function showScore() {
+    var score = document.getElementById('score');
+    // var number = computerScore.innerHTML;
+    // number++;
+    score.innerHTML = game.score;
+}

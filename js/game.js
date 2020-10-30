@@ -34,6 +34,8 @@ class Game {
         setTimeout(swapToEndScreen, 500);
 
         console.log(game.score);
+
+        // end game should show score 
     }
 
     winGame() {

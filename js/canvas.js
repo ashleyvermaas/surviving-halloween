@@ -5,17 +5,18 @@ function clear() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
-function drawScore() {
-    ctx.fillStyle = 'black';
-    ctx.font = '20px Arial';
-    ctx.fillText(`Score: ${game.score}`, 0, 40);
-    //console.log(game.score)
-}
+// function drawScore() {
+//     ctx.fillStyle = 'black';
+//     ctx.font = '20px monospace';
+//     ctx.fillText(`Score: ${game.score}`, 0, 40);
+//     //console.log(game.score)
+// }
 
 function updateCanvas() {
     clear();
     game.update();
-    drawScore();
+    showScore();
+    //drawScore();
     
     if (!game.player.hasCollision) {
         requestAnimationFrame(updateCanvas);
