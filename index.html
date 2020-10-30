@@ -13,28 +13,28 @@
     <div id="container">
         <div id="content-wrap">
             <div id="start-screen">
-                <h1>My First Game</h1>
-                <p>Instructions</p>
+                <h1>COOL NAME</h1>
+                <p id="instructions-title">Instructions</p>
+                <p id="instructions-text">Use the arrow keys to survive as long as possible!</p>
                 <button id="start-button" class="new-game">START</button>
             </div>
-
-            <b>score:</b>
-            <p id="score">0</p>
-
-            <canvas id="canvas" width=1100 height=500></canvas>
+            <div id="game-screen">
+                <div id="score-display"><b>score:</b>
+                    <p id="score">0</p></div>
+                    <canvas id="canvas" width=1200 height=500></canvas>
+            </div>
 
             <div id="end-screen">
                 <h1>GAME OVER</h1>
                 <p>your high score is</p>
                 <p id="end-score">0</p>
-                <p>Don't give up</p>
+                <p>Don't give up, you got this</p>
                 <button id="try-again-button" class="new-game">TRY AGAIN</button>
             </div>
 
 
-
             <div id="win-screen">
-                <h1>YOU WIN!</h1>
+                <h1>YOU MADE IT!</h1>
                 <p>You're the best!</p>
             </div>
 
@@ -45,7 +45,9 @@
 
 
         </div>
-        <footer id="footer"> © 2020 Ashley Vermaas</footer>
+        <div>
+            <footer id="footer"> © 2020 Earl of Lemongrab Productions</footer>
+        </div>
     </div>
     <script src="js/canvas.js"></script>
     <script src="js/component.js"></script>

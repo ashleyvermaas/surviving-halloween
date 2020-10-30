@@ -9,6 +9,7 @@ let tryAgainButton = document.getElementById('try-again-button');
 let body = document.querySelector('body');
 let currentScore;
 let endScore;
+let scoreDisplay = document.getElementById('score-display');
 
 
 document.addEventListener('keydown', e => {
@@ -48,6 +49,7 @@ window.addEventListener("load", function () {
     canvas.remove();
     endScreen.remove();
     winScreen.remove();
+    scoreDisplay.remove();
 });
 
 startButton.addEventListener('click', event => {
@@ -67,26 +69,29 @@ function swapToCanvas() {
     startScreen.remove();
     endScreen.remove();
     body.appendChild(canvas);
+    body.appendChild(scoreDisplay);
 }
 
 function swapToEndScreen() {
     canvas.remove();
     body.appendChild(endScreen);
     showEndScore();
+    scoreDisplay.remove();
 }
 
-function swapToWinScreen(){
+function swapToWinScreen() {
     canvas.remove();
     body.appendChild(winScreen);
 
 }
 
 function showCurrentScore() {
-   currentScore = document.getElementById('score'); 
-   currentScore.innerHTML = game.score;
+    currentScore = document.getElementById('score');
+    currentScore.innerHTML = game.score;
 }
 
-function showEndScore(){
+function showEndScore() {
     endScore = document.getElementById('end-score');
     endScore.innerHTML = currentScore.innerHTML;
 }
+

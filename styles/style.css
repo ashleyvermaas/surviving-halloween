@@ -4,45 +4,82 @@
 }
 
 body {
-    background-color: white;
+    background-color: rgb(56, 0, 51);
     font-family: monospace;
+    color: white;
+    background-image: url("/images/pixel-art-background-4769.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 canvas {
     border: none;
     display: block;
     margin: 0px auto;
-    margin-top: 5%;
+    margin-top: 7%;
     background-color: #789BE8;
     background-image: url("/images/Copy\ of\ Untitled.png");
     /* position: fixed; */
 }
 
-#start-screen, #end-screen {
+#start-screen,
+#end-screen {
     display: flex;
     flex-direction: column;
     margin: 0px auto;
-    margin-top: 10%;
+    margin-top: 7%;
     align-items: center;
-    width: 1000px;
-    height: 400px;
-    background-color: rgb(255, 145, 163);
+    width: 1200px;
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.856);
+    ;
     /* position: fixed; */
 }
 
-#start-button, #try-again-button {
+h1 {
+    font-size: 70px;
+    padding: 60px 0px 30px 0px;
+}
+
+#instructions-title {
+    font-size: 22px;
+}
+
+#instructions-text {
+    padding-top: 20px;
+    font-size: 17px;
+}
+
+button {
+    font-size: 20px;
+    margin-top: 40px;
+}
+
+#start-button,
+#try-again-button {
     padding: 10px 40px;
     font-family: monospace;
 }
 
-#footer {
-    display: flex; 
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center; 
+#score-display {
+    position: fixed;
+    margin-bottom: 10%;
+    height: 50;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    padding-top: 20px;
+    top: 0;
+    font-size: 20px;
 }
 
-
-
-
-/* ALSO ADD SCORE WITH SAME FONT FAMILY */
+footer {
+    position: fixed;
+    margin-top: 10%;
+    height: 50;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    padding-bottom: 30px;
+    bottom: 0;
+}
