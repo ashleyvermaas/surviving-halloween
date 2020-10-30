@@ -1,7 +1,6 @@
 class Game {
     constructor() {
         this.score = 0;
-        this.endScore = this.score;
         this.obstacleArray = [];
         this.player = new Player(0, 400, 100, 100, 'black');
         this.update = () => {
@@ -12,20 +11,16 @@ class Game {
         };
         this.intervalId = null;
         this.setScore = null;
+        this.obstacleInterval = 1000;
+
     }
 
     startGame() {
         updateCanvas();
-        this.intervalId = setInterval(this.makeObstacles, 500);
-        // put 500 in variable
+        this.intervalId = setInterval(this.makeObstacles, this.obstacleInterval);
 
-        this.levelUp();
 
         this.setScore = setInterval(game.addScore, 1000);
-        // if (this.player.hasCollision) {
-        //     clearInterval(scoreInterval);
-        // }
-        console.log(this.setScore)
     }
 
 
@@ -33,25 +28,21 @@ class Game {
     endGame() {
         clearInterval(this.intervalId);
         setTimeout(swapToEndScreen, 500);
-        console.log(game.score);
-        
-
-        // end game should show score
     }
 
     winGame() {
         if (game.score === 100) {
             console.log('You won!');
         }
-
+        //swapToWinScreen
     }
-    
+
     makeObstacles() {
         let obstacleYPositions = [0, 100, 200, 300, 400];
         let y = obstacleYPositions[Math.floor(Math.random() * obstacleYPositions.length)];
         obstacle = new Obstacle(canvas.width, y, 100, 100, 'white');
         game.obstacleArray.push(obstacle);
-        console.log('obstacles running')
+
     }
 
     addScore() {
@@ -59,23 +50,88 @@ class Game {
     }
 
     levelUp() {
-        console.log(obstacle)
-        switch (game.score) {
-            case 5:
-                obstacle.speedX = 0;
-                console.log(obstacle.speedX);
-                break;
+        // level 1
+        if (this.score < 10) {
+            game.obstacleArray.forEach(obstacle => {
+                obstacle.speedX = 3;
+                game.obstacleInterval = 1000;
+            });
         }
-        
-        //level up obstacle speed & interval
-    }
+        // level 2
+        if (this.score >= 10 && this.score < 20) {
+            game.obstacleArray.forEach(obstacle => {
+                obstacle.speedX = 4;
+            });
+        }
 
+        // // level 3
+        if (this.score >= 20 && this.score < 30) {
+            game.obstacleArray.forEach(obstacle => {
+                obstacle.speedX = 5;
+            });
+        }
+
+        // level 4
+        if (this.score >= 30 && this.score < 40) {
+            game.obstacleArray.forEach(obstacle => {
+                obstacle.speedX = 6;
+            });
+        }
+
+        // level 5
+        if (this.score >= 40 && this.score < 50) {
+            game.obstacleArray.forEach(obstacle => {
+                obstacle.speedX = 7;
+            });
+        }
+
+        // level 6
+        if (this.score >= 50 && this.score < 60) {
+            game.obstacleArray.forEach(obstacle => {
+                obstacle.speedX = 8;
+            });
+        }
+
+        // level 7
+        if (this.score >= 60 && this.score < 70) {
+            game.obstacleArray.forEach(obstacle => {
+                obstacle.speedX = 9;
+            });
+        }
+
+        // level 8
+        if (this.score >= 70 && this.score < 80) {
+            game.obstacleArray.forEach(obstacle => {
+                obstacle.speedX = 10;
+            });
+        }
+
+        // level 9
+        if (this.score >= 80 && this.score < 90) {
+            game.obstacleArray.forEach(obstacle => {
+                obstacle.speedX = 11;
+            });
+        }
+
+        // level 10
+        if (this.score >= 90 && this.score < 100) {
+            game.obstacleArray.forEach(obstacle => {
+                obstacle.speedX = 12;
+            });
+        }
+
+        // winGame
+        if (this.score === 100) {
+            this.winGame();
+        }
+    }
 }
 
 
-// const obstacle = new Obstacle();
-var obstacle;
-//console.log(obstacle)
+let obstacle;
+let speedX;
+
+
 
 
 // QUESTIONS
