@@ -8,9 +8,10 @@ let winScreen = document.getElementById('win-screen');
 let tryAgainButton = document.getElementById('try-again-button');
 let body = document.querySelector('body');
 let currentScore;
-let endScore;
+//let endScore;
 let scoreDisplay = document.getElementById('score-display');
-
+var backgroundMusic = new Audio('/audio/bensound-theduel.mp3');
+var laughAudio = new Audio('/audio/Evil_Laugh_1-Timothy-64737261.mp3');
 
 document.addEventListener('keydown', e => {
     switch (e.keyCode) {
@@ -56,13 +57,14 @@ startButton.addEventListener('click', event => {
     swapToCanvas();
     game = new Game();
     game.startGame();
+    backgroundMusic.play();
 });
 
 tryAgainButton.addEventListener('click', event => {
     swapToCanvas();
     game = new Game();
     game.startGame();
-
+    backgroundMusic.play();
 });
 
 function swapToCanvas() {
@@ -73,10 +75,13 @@ function swapToCanvas() {
 }
 
 function swapToEndScreen() {
+     backgroundMusic.pause();
+    backgroundMusic.currentTime = 0;
+    laughAudio.play();
     canvas.remove();
     body.appendChild(endScreen);
     showEndScore();
-    scoreDisplay.remove();
+   
 }
 
 function swapToWinScreen() {
@@ -90,8 +95,9 @@ function showCurrentScore() {
     currentScore.innerHTML = game.score;
 }
 
-function showEndScore() {
-    endScore = document.getElementById('end-score');
-    endScore.innerHTML = currentScore.innerHTML;
-}
+
+// function showEndScore() {
+//     endScore = document.getElementById('end-score');
+//     endScore.innerHTML = currentScore.innerHTML;
+// }
 

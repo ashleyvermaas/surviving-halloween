@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: rgb(56, 0, 51);
+    background-color: black; /*rgb(56, 0, 51)*/
     font-family: monospace;
     color: white;
     background-image: url("/images/pixel-art-background-4769.png");

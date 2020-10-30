@@ -52,7 +52,7 @@ class Game {
         if (this.score < 10) {
             game.obstacleArray.forEach(obstacle => {
                 obstacle.speedX = 3;
-                game.obstacleInterval = 1000;
+                this.obstacleInterval = 1000;
             });
         }
         // level 2
