@@ -10,9 +10,9 @@ let body = document.querySelector('body');
 let currentScore;
 //let endScore;
 let scoreDisplay = document.getElementById('score-display');
-let backgroundMusic = new Audio('../audio/game-music.mp3');
-let laughAudio = new Audio('../audio/laugh-audio.mp3');
-let winAudio = new Audio('../audio/victory-audio.mp3');
+let backgroundMusic = new Audio('./audio/game-music.mp3');
+let laughAudio = new Audio('./audio/laugh-audio.mp3');
+let winAudio = new Audio('./audio/victory-audio.mp3');
 
 document.addEventListener('keydown', e => {
     switch (e.keyCode) {
