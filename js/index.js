@@ -88,6 +88,7 @@ function swapToEndScreen() {
 function swapToWinScreen() {
     backgroundMusic.pause();
     backgroundMusic.currentTime = 0;
+    winAudio.play();
     game = new Game();
     canvas.remove();
     scoreDisplay.remove();

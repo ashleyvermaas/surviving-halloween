@@ -92,20 +92,20 @@ class Game {
         }
 
         // level 4
-        if (this.score >= 30 && this.score < 40) {
+        if (this.score >= 30 && this.score < 50) {
             this.obstacleArray.forEach((obstacle) => {
                 obstacle.speedX = 6;
                 this.obstacleInterval = 500;
             });
         }
 
-        // level 5
-        if (this.score >= 40 && this.score < 50) {
-            this.obstacleArray.forEach((obstacle) => {
-                obstacle.speedX = 6;
-                this.obstacleInterval = 500;
-            });
-        }
+        // // level 5
+        // if (this.score >= 40 && this.score < 50) {
+        //     this.obstacleArray.forEach((obstacle) => {
+        //         obstacle.speedX = 6;
+        //         this.obstacleInterval = 500;
+        //     });
+        // }
 
         // level 6
         if (this.score >= 50 && this.score < 60) {
@@ -118,7 +118,7 @@ class Game {
         // level 7
         if (this.score >= 60 && this.score < 70) {
             this.obstacleArray.forEach((obstacle) => {
-                obstacle.speedX = 9;
+                obstacle.speedX = 8;
                 this.obstacleInterval = 300;
             });
         }
@@ -126,26 +126,26 @@ class Game {
         // level 8
         if (this.score >= 70 && this.score < 80) {
             this.obstacleArray.forEach((obstacle) => {
+                obstacle.speedX = 9;
+                this.obstacleInterval = 300;
+            });
+        }
+
+        // level 9
+        if (this.score >= 80 && this.score < 100) {
+            this.obstacleArray.forEach((obstacle) => {
                 obstacle.speedX = 10;
                 this.obstacleInterval = 200;
             });
         }
 
-        // level 9
-        if (this.score >= 80 && this.score < 90) {
-            this.obstacleArray.forEach((obstacle) => {
-                obstacle.speedX = 11;
-                this.obstacleInterval = 50;
-            });
-        }
-
         // level 10
-        if (this.score >= 90 && this.score < 100) {
-            this.obstacleArray.forEach((obstacle) => {
-                obstacle.speedX = 12;
-                this.obstacleInterval = 50;
-            });
-        }
+        // if (this.score >= 90 && this.score < 100) {
+        //     this.obstacleArray.forEach((obstacle) => {
+        //         obstacle.speedX = 10;
+        //         this.obstacleInterval = 200;
+        //     });
+        // }
 
         // winGame
         if (this.score === 100) {
@@ -163,4 +163,3 @@ let speedX;
 // QUESTIONS
 // How to prevent obstacles from lining up on Y-axis or in stairs thus blocking player?
 
-// How to increment setInterval time with levels?
