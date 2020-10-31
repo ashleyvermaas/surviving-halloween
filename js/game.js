@@ -2,7 +2,7 @@ class Game {
     constructor() {
         this.score = 0;
         this.obstacleArray = [];
-        this.player = new Player(0, 400, 100, 100, "/images/4.png");
+        this.player = new Player(0, 400, 100, 100, "../images/4.png");
         this.update = () => {
             this.player.update();
             this.obstacleArray.forEach(obstacle => {
@@ -41,16 +41,16 @@ class Game {
     makeObstacles() {
         let obstacleYPositions = [0, 100, 200, 300, 400];
         let obstacleImages = [
-            "/images/5.png",
-            "/images/9.png",
-            "/images/10.png",
-            "/images/29.png",
-            "/images/30.png",
-            "/images/31.png",
-            "/images/33.png",
-            "/images/34.png",
-            "/images/36.png",
-            "/images/38.png"
+            "../images/5.png",
+            "../images/9.png",
+            "../images/10.png",
+            "../images/29.png",
+            "../images/30.png",
+            "../images/31.png",
+            "../images/33.png",
+            "../images/34.png",
+            "../images/36.png",
+            "../images/38.png"
         ];
         let y = obstacleYPositions[Math.floor(Math.random() * obstacleYPositions.length)];
         let src = obstacleImages[Math.floor(Math.random() * obstacleImages.length)];
