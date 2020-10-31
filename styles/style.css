@@ -7,7 +7,7 @@ body {
     background-color: black;
     font-family: monospace;
     color: white;
-    background-image: url("/images/pixel-art-background-4769.png");
+    background-image: url("../images/pixel-art-background-4769.png");
     background-size: 100%;
     background-repeat: no-repeat;
 }
@@ -18,7 +18,7 @@ canvas {
     margin: 0px auto;
     margin-top: 7%;
     background-color: #789BE8;
-    background-image: url("/images/Copy\ of\ Untitled.png");
+    background-image: url("../images/Copy\ of\ Untitled.png");
     /* position: fixed; */
 }
 
