@@ -2,7 +2,7 @@ class Game {
     constructor() {
         this.score = 0;
         this.obstacleArray = [];
-        this.player = new Player(0, 400, 100, 100, "../images/4.png");
+        this.player = new Player(0, 400, 100, 100, "../images/player-img.png");
         this.update = () => {
             this.player.update();
             this.obstacleArray.forEach(obstacle => {
@@ -58,9 +58,9 @@ class Game {
         obstacle = new Obstacle(canvas.width, y, 100, 100, src);
         this.obstacleArray.push(obstacle);
 
-    this.timeoutId = setTimeout( () => {
-        this.makeObstacles();
-    }, this.obstacleInterval);
+        this.timeoutId = setTimeout(() => {
+            this.makeObstacles();
+        }, this.obstacleInterval);
     }
 
     addScore() {
