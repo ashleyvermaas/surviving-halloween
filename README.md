@@ -5,7 +5,7 @@
 ### What is Surviving Halloween?
 It is a browser game in which the player has to avoid monsters to stay alive, reach a score of 100 and survive halloween. 
 
-### Ironhack Project
+### Ironhack Project #1
 Surviving Halloween is the very first project made by [Ashley Vermaas](https://github.com/ashleyvermaas) during the Ironhack Web Development Bootcamp. This project is built using HTML, CSS, JavaScript and Canvas, and has been deployed via GitHub Pages.
 
 ### Instructions
