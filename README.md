@@ -12,5 +12,5 @@ This project is a work in progress and needs several improvements and bug fixes.
 ### Credits
 All illustrations are downloaded from [Canva](www.canva.com).
 
-## Enjoy!
-Happy Halloween! (if you survive)
+### Enjoy!
+🎃 Happy Halloween (if you survive)
