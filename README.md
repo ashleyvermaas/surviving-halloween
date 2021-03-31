@@ -15,6 +15,7 @@ The game can be played on a laptop or computer, it is currently not possible to 
 This project is a work in progress and needs several improvements and bug fixes. It's far from perfect, but it is made with love and is still pretty amazing for a first project.
 
 ### Credits
+Many thanks to the Ironhack teachers Luis Junco and Tiago Pereira.
 All illustrations are downloaded from [Canva](www.canva.com).
 
 ### Enjoy!
