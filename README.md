@@ -1,5 +1,7 @@
 # Surviving Halloween
 
+[< Link to Game >](ashleyvermaas.github.io/surviving-halloween/)
+
 ### What is Surviving Halloween?
 It is a browser game in which the player has to avoid monsters to stay alive, reach a score of 100 and survive halloween. 
 
@@ -14,3 +16,5 @@ All illustrations are downloaded from [Canva](www.canva.com).
 
 ### Enjoy!
 Happy Halloween (if you survive) 🎃 
+
+
