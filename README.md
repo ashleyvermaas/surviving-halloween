@@ -13,4 +13,4 @@ This project is a work in progress and needs several improvements and bug fixes.
 All illustrations are downloaded from [Canva](www.canva.com).
 
 ### Enjoy!
-🎃 Happy Halloween (if you survive)
+Happy Halloween (if you survive) 🎃 
